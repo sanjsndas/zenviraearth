@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Zenvira Earth Circle</title>
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f8f6f0;
+      color: #1e2b2c;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      padding: 0 20px;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Libre Baskerville', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #1f3a3b;
+    }
+    h1 { font-size: 3.2rem; margin-bottom: 0.5rem; }
+    h2 {
+      font-size: 2.2rem;
+      margin: 2.5rem 0 1.2rem;
+      border-left: 6px solid #b7ad7a;
+      padding-left: 1.2rem;
+    }
+    h3 { font-size: 1.6rem; margin: 2rem 0 0.8rem; color: #2b4a4b; }
+    p { margin-bottom: 1.5rem; font-size: 1.08rem; color: #263435; }
+    a {
+      color: #2d6b4f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    a:hover { border-bottom-color: #b7ad7a; }
+    .btn {
+      display: inline-block;
+      background: #1f3a3b;
+      color: #f5f2e9;
+      padding: 0.8rem 2.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      border: none;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      transition: 0.2s;
+      border-bottom: none;
+    }
+    .btn:hover { background: #b7ad7a; color: #1f2e2a; border-bottom: none; }
+    /* header */
+    .site-header {
+      padding: 1.8rem 0 1rem;
+      border-bottom: 2px solid #dfdacb;
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .brand {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #1f3a3b;
+      letter-spacing: -0.5px;
+    }
+    .brand span { color: #b7ad7a; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #1f3a3b;
+      border-bottom: none;
+      font-size: 1rem;
+    }
+    .nav-links a:hover { color: #b7ad7a; }
+
+    /* about hero */
+    .about-hero {
+      background: #e9e6da;
+      padding: 3.5rem 3rem;
+      border-radius: 36px;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 12px 30px rgba(30, 43, 44, 0.04);
+    }
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .about-hero .sub {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: #2f4d4a;
+      margin-bottom: 1.8rem;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin: 2.5rem 0;
+    }
+    .about-card {
+      background: #fcfbf7;
+      border-radius: 28px;
+      padding: 2rem 2rem;
+      border: 1px solid #edeadc;
+      transition: 0.2s;
+    }
+    .about-card:hover {
+      transform: translateY(-4px);
+      border-color: #cbc3a8;
+    }
+    .about-card h3 {
+      margin-top: 0;
+      font-size: 1.7rem;
+    }
+    .about-card .icon {
+      font-size: 2.4rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .mission-list {
+      list-style: none;
+      margin: 1.2rem 0;
+    }
+    .mission-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e8e3d4;
+      display: flex;
+      gap: 0.8rem;
+      align-items: baseline;
+    }
+    .mission-list li:last-child { border: none; }
+    .mission-list li::before {
+      content: "🌱";
+      font-size: 1.2rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+    .team-member {
+      background: #f5f2e9;
+      border-radius: 40px;
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+    }
+    .team-member .avatar {
+      font-size: 3.6rem;
+      line-height: 1;
+    }
+    .team-member h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin: 0.5rem 0 0.2rem;
+    }
+    .team-member .role {
+      font-size: 0.9rem;
+      color: #5b746d;
+    }
+    .img-about {
+      max-width: 100%;
+      border-radius: 28px;
+      margin: 1.2rem 0 1.8rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    footer {
+      border-top: 2px solid #dfdacb;
+      padding: 2.5rem 0 2rem;
+      margin-top: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: #4b635e;
+    }
+    @media (max-width: 780px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .site-header { flex-direction: column; gap: 0.8rem; }
+      .about-hero { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header (identical to main) -->
+  <header class="site-header">
+    <div class="brand">Zenvira<span> Earth</span> Circle</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" style="color:#b7ad7a;">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+    </div>
+  </header>
+
+  <!-- about hero -->
+  <section class="about-hero">
+    <h1>Rooted in craft,<br>grounded in care.</h1>
+    <div class="sub">Zenvira Earth Circle is a quiet alliance of gardeners, ecologists, and storytellers.</div>
+    <p style="font-size:1.15rem; max-width: 700px;">We believe that good gardening is not about speed or yield alone — it's about attention, reciprocity, and the long intelligence of the land. Our work bridges traditional horticulture, regenerative agriculture, and the art of living well with plants.</p>
+    <a href="#mission" class="btn">Our mission</a>
+  </section>
+
+  <!-- about image 1 -->
+  <img class="img-about" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='160' viewBox='0 0 800 160'%3E%3Crect width='800' height='160' fill='%23cbc3a8'/%3E%3Ctext x='30' y='95' font-family='Inter' font-size='28' fill='%231f3a3b' font-weight='300'%3E——— hands in soil, minds in the canopy ———%3C/text%3E%3C/svg%3E" alt="gardeners at work">
+
+  <!-- mission & values -->
+  <h2 id="mission">What we stand for</h2>
+  <div class="about-grid">
+    <div class="about-card">
+      <span class="icon">🌿</span>
+      <h3>Deep ecology</h3>
+      <p>We see gardens as living systems. Soil health, mycorrhizal networks, and biodiversity are not abstractions — they are the foundation of resilience.</p>
+    </div>
+    <div class="about-card">
+      <span class="icon">📖</span>
+      <h3>Slow knowledge</h3>
+      <p>We resist the noise. Every article, guide, and essay is researched with care, edited for clarity, and grounded in both science and tradition.</p>
+    </div>
+    <div class="about-card">
+      <span class="icon">🌱</span>
+      <h3>Heirloom & adaptation</h3>
+      <p>We champion local ecotypes, seed saving, and the quiet work of selecting plants that thrive in place — not just for one season, but for generations.</p>
+    </div>
+    <div class="about-card">
+      <span class="icon">🤝</span>
+      <h3>Community of practice</h3>
+      <p>We are a gathering place for thoughtful gardeners: beginners, orchardists, market growers, and those who simply love to observe the unfolding of leaves.</p>
+    </div>
+  </div>
+
+  <!-- second about image -->
+  <img class="img-about" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='120' viewBox='0 0 800 120'%3E%3Crect width='800' height='120' fill='%23b7ad7a'/%3E%3Ctext x='30' y='70' font-family='Inter' font-size='26' fill='%23f5f2e9' font-weight='300'%3E··· from seed to stamen, we follow ···%3C/text%3E%3C/svg%3E" alt="seed to stamen">
+
+  <!-- team / editors -->
+  <h2>Gardeners &amp; editors</h2>
+  <p>Our contributors are horticulturists, ecologists, and writers who bring decades of hands-on experience. We are based in different bioregions, but we share a common language: curiosity.</p>
+  <div class="team-grid">
+    <div class="team-member">
+      <div class="avatar">🌻</div>
+      <h4>Elara T.</h4>
+      <div class="role">Editor · soil ecology</div>
+    </div>
+    <div class="team-member">
+      <div class="avatar">🍂</div>
+      <h4>Marius K.</h4>
+      <div class="role">Orchard specialist</div>
+    </div>
+    <div class="team-member">
+      <div class="avatar">🌾</div>
+      <h4>Linnea W.</h4>
+      <div class="role">Seed systems &amp; history</div>
+    </div>
+    <div class="team-member">
+      <div class="avatar">🌳</div>
+      <h4>Jasper N.</h4>
+      <div class="role">Perennial design</div>
+    </div>
+  </div>
+
+  <!-- values list (extended) -->
+  <div style="background:#f0ede3; border-radius:40px; padding:2.5rem 2.8rem; margin: 2.8rem 0;">
+    <h3 style="margin-top:0;">Our guiding principles</h3>
+    <ul class="mission-list" style="display:grid; grid-template-columns:1fr 1fr; gap:0.2rem 2rem;">
+      <li>Observe before acting</li>
+      <li>Feed the soil, not just the plant</li>
+      <li>Embrace polyculture</li>
+      <li>Save seeds with intention</li>
+      <li>Share knowledge freely</li>
+      <li>Work with succession</li>
+      <li>Value the imperfect</li>
+      <li>Garden for the seventh generation</li>
+    </ul>
+  </div>
+
+  <!-- FAQ / about specific -->
+  <section style="background:#faf8f2; border-radius:40px; padding:2.5rem 3rem; margin:2.5rem 0; border:1px solid #e2ddcd;">
+    <h2 style="margin-top:0;">About this place</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.8rem;">
+      <div><strong style="font-family:'Libre Baskerville',serif;">Where is Zenvira based?</strong><p style="font-size:1rem; margin-top:0.3rem;">We are a distributed collective, rooted in temperate and Mediterranean climates, but our perspective is global.</p></div>
+      <div><strong style="font-family:'Libre Baskerville',serif;">Is this a commercial venture?</strong><p style="font-size:1rem; margin-top:0.3rem;">We are reader-supported. We don't sell products — we share knowledge. Our only currency is attention and care.</p></div>
+      <div><strong style="font-family:'Libre Baskerville',serif;">How can I contribute?</strong><p style="font-size:1rem; margin-top:0.3rem;">We welcome pitches from experienced growers and writers. Reach out via our contact page.</p></div>
+      <div><strong style="font-family:'Libre Baskerville',serif;">Do you offer courses?</strong><p style="font-size:1rem; margin-top:0.3rem;">We occasionally host deep-dive workshops and reading groups. Subscribe to our newsletter for updates.</p></div>
+    </div>
+  </section>
+
+  <!-- newsletter (same as index) -->
+  <div class="newsletter" style="background:#1f3a3b; color:#f5f2e9; padding:3rem 2.5rem; border-radius:60px; margin:3rem 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+    <div>
+      <h3 style="color:#f5f2e9; font-size:1.8rem; margin:0;">Letters from the garden</h3>
+      <p style="color:#d6d9c9; margin:0.3rem 0 0;">Weekly insights, rare varieties, and reading lists.</p>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:0.6rem;">
+      <input type="email" placeholder="your email address" aria-label="email for newsletter" style="background:#f5f2e9; border:none; padding:0.8rem 1.8rem; border-radius:60px; font-size:1rem; min-width:200px; color:#1e2b2c;">
+      <button style="background:#b7ad7a; border:none; padding:0.8rem 2rem; border-radius:60px; font-weight:600; color:#1f2e2a; cursor:pointer; transition:0.2s;">Subscribe</button>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer>
+    <div>© 2026 Zenvira Earth Circle · cultivated with care</div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="#">Archive</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
